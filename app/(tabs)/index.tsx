@@ -10,7 +10,9 @@ import * as ImagePicker from "expo-image-picker";
 import * as Sharing from "expo-sharing";
 import * as Speech from "expo-speech";
 import * as FileSystem from "expo-file-system/legacy";
-import { DETECT_URL } from "../constants/backend";
+import { DETECT_URL } from "@/constants/backend";
+import { authHeaders } from "@/utils/auth";
+import { fetchWithTimeout } from "@/utils/http";
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
 const BACKEND_URL    = DETECT_URL;
@@ -311,14 +313,22 @@ export default function HomeScreen() {
       let synced      = 0;
       const failed: any[] = [];
 
+      const headers = await authHeaders();
       for (const item of data) {
         try {
-          const res = await fetch(BACKEND_URL, {
-            method:  "POST",
-            headers: { "Content-Type": "application/json" },
-            body:    JSON.stringify(item),
-            signal:  AbortSignal.timeout(5000),
-          });
+          const payload = {
+            lat: item.lat,
+            lng: item.lng,
+            accelZ: item.accelZ,
+            severity: item.severity,
+            speed: item.speed,
+            photoUri: item.photoUri,
+          };
+          const res = await fetchWithTimeout(
+            BACKEND_URL,
+            { method: "POST", headers, body: JSON.stringify(payload) },
+            8000
+          );
           if (res.ok) synced++;
           else failed.push(item);
         } catch {
@@ -346,22 +356,21 @@ export default function HomeScreen() {
     if (!loc) return;
 
     const payload = {
-      accelZ:    shock,
-      severity:  classifySeverity(shock),
-      speed:     speedRef.current,
-      lat:       loc.coords.latitude,
-      lng:       loc.coords.longitude,
-      timestamp: new Date().toISOString(),
-      photoUri:  lastPhoto,
+      accelZ:   shock,
+      severity: classifySeverity(shock),
+      speed:    speedRef.current,
+      lat:      loc.coords.latitude,
+      lng:      loc.coords.longitude,
+      photoUri: lastPhoto ?? undefined,
     };
 
     try {
-      const res = await fetch(BACKEND_URL, {
-        method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify(payload),
-        signal:  AbortSignal.timeout(5000),
-      });
+      const headers = await authHeaders();
+      const res = await fetchWithTimeout(
+        BACKEND_URL,
+        { method: "POST", headers, body: JSON.stringify(payload) },
+        8000
+      );
       if (res.ok) {
         setIsOnline(true);
         setStatus("Saved to server!");

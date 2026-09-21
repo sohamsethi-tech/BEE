@@ -1,6 +1,7 @@
 
-import React, { useRef, useEffect, useState } from 'react';
-
+import React, { useRef } from 'react';
+import useEffect from 'react';
+import useState from 'react';
 // Simple single-file top-down racing game using Canvas
 // Controls: Arrow keys or A/D to steer, Up to accelerate, Down to brake
 

@@ -3,6 +3,8 @@
 FROM maven:3.9.4-eclipse-temurin-17 AS build
 WORKDIR /workspace
 
+LABEL project="PotholeScan"
+
 # Copy only maven wrapper and pom first to leverage caching
 COPY mvnw .
 COPY .mvn .mvn

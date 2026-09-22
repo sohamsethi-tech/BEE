@@ -321,7 +321,7 @@ const s = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 10,
-    backgroundColor: "rgba(5,5,8,0.96)",
+    backgroundColor: "lightblue",
     paddingHorizontal: 16,
     paddingBottom: 12,
     borderBottomWidth: 1,
@@ -347,7 +347,7 @@ const s = StyleSheet.create({
   stats: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#0d0d14",
+    backgroundColor: "lightblue",
     borderRadius: 12,
     paddingVertical: 10,
     marginBottom: 10,
@@ -360,7 +360,7 @@ const s = StyleSheet.create({
     marginTop: 2,
     textTransform: "uppercase",
   },
-  statDiv: { width: 1, height: 30, backgroundColor: "#1a1a1a" },
+  statDiv: { width: 1, height: 30, backgroundColor: "lightblue" },
   filters: { flexDirection: "row", gap: 8 },
   chip: {
     flex: 1,

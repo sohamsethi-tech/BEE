@@ -120,7 +120,7 @@ export default function DashboardScreen() {
   const renderItem = ({ item, index }: { item: Pothole; index: number }) => {
     const c = cfg(item.severity || "");
     return (
-      <View style={[s.card, { backgroundColor: c.bg, borderColor: c.border }]}>
+      <View style={[s.card, { backgroundColor: "white", borderColor: c.border }]}>
         {item.photoUri && <Image source={{ uri: item.photoUri }} style={s.photo} resizeMode="cover" />}
         <View style={s.body}>
           <View style={s.top}>
@@ -164,7 +164,7 @@ export default function DashboardScreen() {
 
   if (loading) return (
     <View style={s.loading}>
-      <ActivityIndicator size="large" color="#00C851" />
+      <ActivityIndicator size="large" color="#d59843" />
       <Text style={s.loadingText}>Loading records...</Text>
     </View>
   );
@@ -182,7 +182,7 @@ export default function DashboardScreen() {
       </View>
 
       <View style={s.chips}>
-        {[["#071a07","#1a3a1a","#00C851","Light",light],["#1a1500","#3a3000","#FFD700","Medium",medium],["#1a0505","#3a1010","#FF4444","Severe",severe],["#0d0d14","#1c1c2e","#fff","Total",potholes.length]].map(([bg,border,col,label,val]) => (
+        {[["lightblue","lightblue","green","Light",light],["lightblue","lightblue","yellow","Medium",medium],["lightblue","lightblue","red","Severe",severe],["lightblue","lightblue","white","Total",potholes.length]].map(([bg,border,col,label,val]) => (
           <View key={label as string} style={[s.chip, { backgroundColor: bg as string, borderColor: border as string }]}>
             <Text style={[s.chipNum, { color: col as string }]}>{val as number}</Text>
             <Text style={s.chipLabel}>{label as string}</Text>
@@ -210,7 +210,7 @@ export default function DashboardScreen() {
 }
 
 const s = StyleSheet.create({
-  container:   { flex: 1, backgroundColor: "#050508", paddingHorizontal: 16 },
+  container:   { flex: 1, backgroundColor: "lightblue", paddingHorizontal: 16 },
   loading:     { flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#050508" },
   loadingText: { color: "#555", marginTop: 12, fontSize: 14 },
   header:      { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 4 },
@@ -219,7 +219,7 @@ const s = StyleSheet.create({
   refreshBtn:  { backgroundColor: "#0d0d14", borderRadius: 12, paddingHorizontal: 14, paddingVertical: 8, borderWidth: 1, borderColor: "#1c1c2e" },
   refreshText: { color: "#aaa", fontSize: 13, fontWeight: "600" },
   chips:       { flexDirection: "row", gap: 8, marginTop: 14, marginBottom: 18 },
-  chip:        { flex: 1, borderRadius: 12, paddingVertical: 10, alignItems: "center", borderWidth: 1 },
+  chip:        { flex: 1, borderRadius: 0, paddingVertical: 10, alignItems: "center", borderWidth: 1 },
   chipNum:     { fontSize: 20, fontWeight: "800" },
   chipLabel:   { color: "#555", fontSize: 10, marginTop: 2, textTransform: "uppercase", letterSpacing: 0.5 },
   card:        { borderRadius: 16, marginBottom: 14, overflow: "hidden", borderWidth: 1 },

@@ -13,6 +13,7 @@ import * as FileSystem from "expo-file-system/legacy";
 import { DETECT_URL } from "@/constants/backend";
 import { authHeaders } from "@/utils/auth";
 import { fetchWithTimeout } from "@/utils/http";
+import { Background } from "expo-router/react-navigation";
 
 // ─── CONFIG ────────────────────────────────────────────────────────────────
 const BACKEND_URL    = DETECT_URL;
@@ -444,7 +445,7 @@ export default function HomeScreen() {
       </View>
 
       {/* ── CONNECTIVITY BANNER ── */}
-      <View style={[styles.banner, { backgroundColor: isOnline ? "#071a07" : "#1a0f00" }]}>
+      <View style={[styles.banner, { backgroundColor: isOnline ? "white" : "white" }]}>
         <View style={[styles.dot, { backgroundColor: isOnline ? "#00C851" : "#FF9500" }]} />
         <Text style={styles.bannerText}>
           {isOnline ? "Connected to Server" : "Working Offline"}
@@ -457,7 +458,7 @@ export default function HomeScreen() {
       </View>
 
       {/* ── DETECTION TOGGLE ── */}
-      <View style={[styles.banner, { backgroundColor: isDetecting ? "#071a07" : "#1a0707", marginBottom: 20 }]}>
+      <View style={[styles.banner, { backgroundColor: isDetecting ? "white" : "white", marginBottom: 20 }]}>
         <Animated.View style={[styles.dot, {
           backgroundColor: isDetecting ? "#00C851" : "#FF4444",
           transform: isDetecting ? [{ scale: pulseAnim }] : [],
@@ -605,41 +606,41 @@ export default function HomeScreen() {
 
 // ─── STYLES ───────────────────────────────────────────────────────────────────
 const styles = StyleSheet.create({
-  container:     { flex: 1, backgroundColor: "#050508", paddingHorizontal: 16 },
+  container:     { flex: 1, backgroundColor: "lightblue", paddingHorizontal: 16 },
   header:        { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 },
   appName:       { fontSize: 26, fontWeight: "800", color: "#ffffff", letterSpacing: -0.5 },
   appTagline:    { fontSize: 11, color: "#444", marginTop: 2, letterSpacing: 1, textTransform: "uppercase" },
-  badge:         { alignItems: "center", backgroundColor: "#0f0f1a", borderRadius: 14, paddingHorizontal: 14, paddingVertical: 8, borderWidth: 1, borderColor: "#222" },
+  badge:         { alignItems: "center", backgroundColor: "white", borderRadius: 14, paddingHorizontal: 14, paddingVertical: 8, borderWidth: 1, borderColor: "#222" },
   badgeNum:      { fontSize: 22, fontWeight: "800", color: "#00C851" },
   badgeLabel:    { fontSize: 10, color: "#555", textTransform: "uppercase", letterSpacing: 0.5 },
-  banner:        { flexDirection: "row", alignItems: "center", paddingHorizontal: 14, paddingVertical: 10, borderRadius: 12, marginBottom: 8, borderWidth: 1, borderColor: "#1a1a1a" },
+  banner:        { flexDirection: "row", backgroundColor: "white",alignItems: "center", paddingHorizontal: 14, paddingVertical: 10, borderRadius: 12, marginBottom: 8, borderWidth: 1, borderColor: "#1a1a1a" },
   dot:           { width: 9, height: 9, borderRadius: 5, marginRight: 10 },
   bannerText:    { color: "#aaa", flex: 1, fontSize: 13 },
   syncBtn:       { backgroundColor: "#FF9500", paddingHorizontal: 12, paddingVertical: 5, borderRadius: 12 },
   syncText:      { color: "#fff", fontSize: 12, fontWeight: "700" },
   toggleBtn:     { paddingHorizontal: 14, paddingVertical: 5, borderRadius: 12 },
   toggleText:    { color: "#fff", fontSize: 12, fontWeight: "700" },
-  speedCard:     { backgroundColor: "#0d0d14", borderRadius: 16, padding: 20, flexDirection: "row", alignItems: "center", marginBottom: 14, borderWidth: 1, borderColor: "#1c1c2e" },
+  speedCard:     { backgroundColor: "white", borderRadius: 16, padding: 20, flexDirection: "row", alignItems: "center", marginBottom: 14, borderWidth: 1, borderColor: "#1c1c2e" },
   speedMain:     { alignItems: "baseline", flexDirection: "row" },
-  speedValue:    { fontSize: 54, fontWeight: "800", color: "#fff", lineHeight: 58 },
+  speedValue:    { fontSize: 54, fontWeight: "800", color: "black", lineHeight: 58 },
   speedUnit:     { fontSize: 16, color: "#555", marginLeft: 6, marginBottom: 6 },
   speedDivider:  { width: 1, height: 50, backgroundColor: "#222", marginHorizontal: 20 },
   speedRight:    { flex: 1 },
   speedStatus:   { fontSize: 18, fontWeight: "700" },
   speedHint:     { fontSize: 12, color: "#444", marginTop: 4 },
   statsRow:      { flexDirection: "row", gap: 10, marginBottom: 14 },
-  statCard:      { flex: 1, backgroundColor: "#0d0d14", borderRadius: 14, padding: 14, alignItems: "center", borderWidth: 1, borderColor: "#1c1c2e" },
+  statCard:      { flex: 1, backgroundColor: "white", borderRadius: 14, padding: 14, alignItems: "center", borderWidth: 1, borderColor: "#1c1c2e" },
   statIcon:      { fontSize: 18, marginBottom: 6 },
-  statValue:     { color: "#fff", fontSize: 13, fontWeight: "700" },
-  statLabel:     { color: "#444", fontSize: 10, marginTop: 3, textTransform: "uppercase", letterSpacing: 0.5 },
-  sensorCard:    { backgroundColor: "#0d0d14", borderRadius: 14, padding: 14, marginBottom: 14, borderWidth: 1, borderColor: "#1c1c2e" },
-  sectionLabel:  { color: "#333", fontSize: 10, fontWeight: "700", letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 10 },
+  statValue:     { color: "black", fontSize: 13, fontWeight: "700" },
+  statLabel:     { color: "black", fontSize: 10, marginTop: 3, textTransform: "uppercase", letterSpacing: 0.5 },
+  sensorCard:    { backgroundColor: "white", borderRadius: 14, padding: 14, marginBottom: 14, borderWidth: 1, borderColor: "#1c1c2e" },
+  sectionLabel:  { color: "black", fontSize: 10, fontWeight: "700", letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 10 },
   accelRow:      { flexDirection: "row", gap: 8 },
-  axisChip:      { flex: 1, backgroundColor: "#111120", borderRadius: 10, padding: 10, alignItems: "center" },
-  axisLabel:     { color: "#555", fontSize: 10, fontWeight: "700", letterSpacing: 1 },
-  axisValue:     { color: "#fff", fontSize: 15, fontWeight: "700", marginTop: 4, fontVariant: ["tabular-nums"] },
-  buttonRow:     { flexDirection: "row", gap: 10, marginBottom: 14 },
-  actionBtn:     { flex: 1, backgroundColor: "#0d0d14", borderRadius: 14, padding: 14, alignItems: "center", borderWidth: 1.5 },
+  axisChip:      { flex: 1, backgroundColor: "white", borderRadius: 10, padding: 10, alignItems: "center" },
+  axisLabel:     { color: "black", borderColor: "black",fontSize: 10, fontWeight: "700", letterSpacing: 1 },
+  axisValue:     { color: "black", fontSize: 15, borderColor: "black", fontWeight: "700", marginTop: 4, fontVariant: ["tabular-nums"] },
+  buttonRow:     { flexDirection: "row", gap: 10, borderColor: "black", marginBottom: 14 },
+  actionBtn:     { flex: 1, backgroundColor: "white", borderRadius: 14, padding: 14, alignItems: "center", borderWidth: 1.5 },
   actionIcon:    { fontSize: 22 },
   actionLabel:   { color: "#aaa", fontSize: 11, marginTop: 6, fontWeight: "600" },
   photoCard:     { backgroundColor: "#0d0d14", borderRadius: 14, overflow: "hidden", marginBottom: 14, borderWidth: 1, borderColor: "#1c1c2e" },

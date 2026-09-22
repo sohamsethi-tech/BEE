@@ -69,7 +69,7 @@ export default function ProfileScreen() {
 }
 
 const s = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#050508", paddingHorizontal: 20 },
+  container: { flex: 1, backgroundColor: "lightblue", paddingHorizontal: 20 },
   center: {
     flex: 1,
     justifyContent: "center",
@@ -78,11 +78,11 @@ const s = StyleSheet.create({
   },
   title: { fontSize: 28, fontWeight: "800", color: "#fff", marginBottom: 20 },
   card: {
-    backgroundColor: "#0d0d14",
-    borderRadius: 16,
+    backgroundColor: "lightblue",
+    borderRadius: 0,
     padding: 18,
     borderWidth: 1,
-    borderColor: "#1c1c2e",
+    borderColor: "lightblue",
   },
   label: {
     color: "#555",
@@ -91,15 +91,15 @@ const s = StyleSheet.create({
     letterSpacing: 1,
   },
   gap: { marginTop: 14 },
-  value: { color: "#fff", fontSize: 16, fontWeight: "600", marginTop: 6 },
+  value: { color: "black", fontSize: 16, fontWeight: "600", marginTop: 6 },
   logoutBtn: {
     marginTop: 28,
-    backgroundColor: "#1a0505",
-    borderRadius: 14,
+    backgroundColor: "#D92D3F",
+    borderRadius: 12,
     paddingVertical: 16,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#3a1010",
+    borderColor: "#FF5C61",
   },
-  logoutText: { color: "#FF4444", fontSize: 16, fontWeight: "800" },
+  logoutText: { color: "#FFFFFF", fontSize: 16, fontWeight: "800" },
 });

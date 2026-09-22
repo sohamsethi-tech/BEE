@@ -1,4 +1,3 @@
-
 {
   "expo": {
     "name": "app",
@@ -9,7 +8,6 @@
     "scheme": "app",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
@@ -18,7 +16,6 @@
         }
       }
     },
-
     "android": {
       "usesCleartextTraffic": true,
       "adaptiveIcon": {
@@ -31,15 +28,12 @@
       "predictiveBackGestureEnabled": false,
       "package": "com.sethisoham.app"
     },
-
     "web": {
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-
     "plugins": [
       "expo-router",
-
       [
         "expo-splash-screen",
         {
@@ -52,15 +46,16 @@
           }
         }
       ],
-
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-font",
+      "expo-image",
+      "expo-sharing",
+      "expo-status-bar"
     ],
-
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
     },
-
     "extra": {
       "router": {},
       "eas": {

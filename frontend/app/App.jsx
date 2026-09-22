@@ -122,11 +122,11 @@ export default function App() {
 			for (let ob of obstacles) {
 				ctx.fillStyle = '#b33';
 				ctx.fillRect(ob.x, ob.y, ob.w, ob.h);
-				ctx.strokeStyle = '#800';
+				ctx.strokeStyle = '#800'; // main part
 				ctx.strokeRect(ob.x, ob.y, ob.w, ob.h);
 			}
 
-			// player car
+			// player car 
 			ctx.save();
 			ctx.translate(player.x + player.width / 2, player.y + player.height / 2);
 			ctx.rotate(player.angle * 0.05);

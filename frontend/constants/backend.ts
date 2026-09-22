@@ -3,12 +3,6 @@ import { Platform } from "react-native";
 
 declare const __DEV__: boolean;
 
-/**
- * Dev API host:
- * - iOS Simulator / web: 127.0.0.1
- * - Android Emulator: 10.0.2.2
- * - Physical device (Expo Go): same LAN IP Metro uses (NOT localhost)
- */
 function getDevHost(): string {
   const hostUri =
     Constants.expoConfig?.hostUri ??

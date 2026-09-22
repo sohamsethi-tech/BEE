@@ -22,6 +22,7 @@ export default function ModalScreen() {
   );
 }
 
+// Style sheet
 const styles = StyleSheet.create({
   container: {
     flex: 1,
